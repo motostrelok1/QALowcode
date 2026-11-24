@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QA Recorder</title>
+  <link rel="stylesheet" href="panel.css" />
+</head>
+<body>
+  <header id="topbar">
+    <input id="test-name" type="text" value="Новый тест" title="Имя теста" />
+    <span id="counter" title="Записано шагов">0</span>
+  </header>
+
+  <div id="controls">
+    <button id="btn-record" class="primary">● Запись</button>
+    <button id="btn-clear" title="Очистить список шагов">Очистить</button>
+  </div>
+
+  <main id="layout">
+    <ul id="step-list"></ul>
+
+    <aside id="step-card" class="hidden">
+      <h3 id="card-label"></h3>
+      <div class="card-row"><span class="muted">action:</span> <span id="card-action"></span></div>
+      <div class="card-row"><span class="muted">resolution:</span> <span id="card-resolution"></span></div>
+      <div class="card-row" id="card-within-row" style="display:none">
+        <span class="muted">within:</span> <span id="card-within"></span>
+      </div>
+      <h4>Кандидаты</h4>
+      <ul id="candidate-list"></ul>
+      <h4>Тайминги</h4>
+      <div class="card-row">
+        <label>wait_timeout_ms <input id="inp-timeout" type="number" min="100" step="100" /></label>
+      </div>
+      <div class="card-row">
+        <label>post_action_delay_ms <input id="inp-delay" type="number" min="0" step="50" /></label>
+      </div>
+    </aside>
+  </main>
+
+  <script src="panel.js"></script>
+</body>
+</html>

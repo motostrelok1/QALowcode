@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "QA Recorder & Playback",
+  "version": "0.1.0",
+  "description": "Запись и воспроизведение QA-сценариев (этап 1: запись кликов, сбор кандидатов)",
+  "permissions": ["sidePanel", "storage", "tabs"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "title": "QA Recorder — открыть панель"
+  },
+  "side_panel": {
+    "default_path": "panel/panel.html"
+  }
+}
